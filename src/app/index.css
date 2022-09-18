@@ -1,3 +1,8 @@
+*{
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
 .pagination-list{
   list-style: none;
   column-gap: 20px;
@@ -13,16 +18,16 @@
   color: rgb(55, 20, 212);
   font-weight: 800;
 }
-table td{
-  border: 1px solid gray;
-  position: relative;
+.limited-area {
+  width: 100vw;
+  overflow-x: auto;
+  white-space:nowrap;
 }
-.Dragger{
-  cursor: col-resize;
-  height: 100%;
-  position: absolute;
-  right: -4px;
-  top: 0;
-  width: 8px;
-  z-index: 1;
+.first-col-fixed {
+  position: sticky;
+  left: 0px;
+}
+.last-col-fixed {
+  position: sticky;
+  right: 0px;
 }

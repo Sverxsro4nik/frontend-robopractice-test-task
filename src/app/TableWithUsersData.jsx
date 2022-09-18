@@ -40,40 +40,42 @@ export const TableWithUsersData = ({ allData }) => {
       <Form className='w-25 ml-5 mt-5'>
         <FormControl type='text' ref={fullNameRef} onChange={(e) => searchHandler(normalizeUsersData, e.target.value)}/>
       </Form>
-      <Table size='xs' className='text-center' striped bordered>
-        <thead>
-          <tr>
-            <td className='sticky-position'>User</td>
-              {
-                date.map((day, index) => <td
-                  key={index}
-                  id={convertData(day)}
-                >{convertData(day)}</td>)
-              }
-            <td className='sticky-position'>Total</td>
+      <div className='limited-area'>
+        <Table size='xs' className='text-center' striped bordered>
+          <thead>
+            <tr>
+              <td className='first-col-fixed bg-white'>User</td>
+                {
+                  date.map((day, index) => <td
+                    key={index}
+                    id={convertData(day)}
+                  >{convertData(day)}</td>)
+                }
+              <td className='last-col-fixed bg-white'>Total</td>
+              </tr>
+            </thead>
+            <tbody className='table-scroll'>
+              { searchedData.map((user) => {
+                const { Fullname, workDays, allTime } = user;
+                return <tr>
+                  <td className='first-col-fixed bg-white'>{Fullname}</td>
+                    {
+                      workDays.map((day) => <td key={day.actualDay} className='centered'>{day.actualTime}</td>)
+                    }
+                  <td className='last-col-fixed bg-white'>{allTime}</td>
+                  </tr>
+              })
+            }
+          </tbody>
+          <tfoot>
+            <tr>
+              <td colSpan={33}>
+                <Pagination pages={pages} currentPage={currentPage} painationClickHandler={painationClickHandler}/>
+              </td>
             </tr>
-          </thead>
-          <tbody className='table-scroll'>
-            { searchedData.map((user) => {
-              const { Fullname, workDays, allTime } = user;
-              return <tr>
-                <td className='sticky-position'>{Fullname}</td>
-                  {
-                    workDays.map((day) => <td key={day.actualDay} className='centered'>{day.actualTime}</td>)
-                  }
-                <td className='sticky-position'>{allTime}</td>
-                </tr>
-            })
-          }
-        </tbody>
-        <tfoot>
-          <tr>
-            <td colSpan={33}>
-              <Pagination pages={pages} currentPage={currentPage} painationClickHandler={painationClickHandler}/>
-            </td>
-          </tr>
-        </tfoot>
-      </Table>
+          </tfoot>
+        </Table>
+      </div>
     </>
   )
 }
