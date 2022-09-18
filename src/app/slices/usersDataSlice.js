@@ -16,7 +16,7 @@ const initialState = usersDataAdapter.getInitialState({
 })
 
 const usersData = createSlice({
-  name: usersDataAdapter,
+  name: 'usersData',
   initialState,
   extraReducers: (builder) => {
     builder.addCase(fetchData.pending, (state) => {
@@ -36,5 +36,6 @@ const usersData = createSlice({
 export const selectors = usersDataAdapter.getSelectors((state) => state.usersData);
 
 export const getAllData = (state) => selectors.selectAll(state);
+export const { setCurrentPage } = usersData.actions;
 
 export default usersData.reducer;

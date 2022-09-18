@@ -1,0 +1,28 @@
+.pagination-list{
+  list-style: none;
+  column-gap: 20px;
+  margin-right: 20px;
+  margin-bottom: 0;
+}
+.pagination-list_item {
+  font-weight: normal;
+  cursor: pointer;
+}
+
+.pagination-list_item-active {
+  color: rgb(55, 20, 212);
+  font-weight: 800;
+}
+table td{
+  border: 1px solid gray;
+  position: relative;
+}
+.Dragger{
+  cursor: col-resize;
+  height: 100%;
+  position: absolute;
+  right: -4px;
+  top: 0;
+  width: 8px;
+  z-index: 1;
+}
