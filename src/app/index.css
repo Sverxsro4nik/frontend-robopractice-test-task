@@ -1,9 +1,9 @@
-*{
+* {
   box-sizing: border-box;
   margin: 0;
   padding: 0;
 }
-.pagination-list{
+.pagination-list {
   list-style: none;
   column-gap: 20px;
   margin-right: 20px;
@@ -21,7 +21,7 @@
 .limited-area {
   width: 100vw;
   overflow-x: auto;
-  white-space:nowrap;
+  white-space: nowrap;
 }
 .first-col-fixed {
   position: sticky;
